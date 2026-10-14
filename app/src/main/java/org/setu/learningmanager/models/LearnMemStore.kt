@@ -6,7 +6,7 @@ class LearnMemStore {
     private val subjects = ArrayList<SubjectModel>()
     private val assignments = ArrayList<AssignmentModel>()
     private val exams = ArrayList<ExamModel>()
-    private val sessions = ArrayList<StudySessionModel>()
+    private val sessions = Arraygit statusList<StudySessionModel>()
     private val lastId = AtomicLong(0L)
 
     //Subject CRUD
