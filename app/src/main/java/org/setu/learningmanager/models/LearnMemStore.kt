@@ -6,7 +6,6 @@ class LearnMemStore {
     private val subjects = ArrayList<SubjectModel>()
     private val assignments = ArrayList<AssignmentModel>()
     private val exams = ArrayList<ExamModel>()
-    private val sessions = ArrayList<StudySessionModel>()
     private val lastId = AtomicLong(0L)
 
     //Subject CRUD
@@ -120,46 +119,6 @@ class LearnMemStore {
 
     fun findOneExam(id: Long): ExamModel? {
         return exams.find { exam -> exam.id == id }
-    }
-
-    // Study Session CRUD
-    fun findAllSessions(): List<StudySessionModel> {
-        return sessions
-    }
-
-    fun createSession(session: StudySessionModel) {
-        session.id = lastId.incrementAndGet()
-        sessions.add(session)
-    }
-
-    fun updateSession(session: StudySessionModel): Boolean {
-        val foundSession = findOneSession(session.id)
-        return if (foundSession != null) {
-            foundSession.subjectId = session.subjectId
-            foundSession.topic = session.topic
-            foundSession.details = session.details
-            foundSession.date = session.date
-            foundSession.startTime = session.startTime
-            foundSession.durationMinutes = session.durationMinutes
-            foundSession.isCompleted = session.isCompleted
-            true
-        } else {
-            false
-        }
-    }
-
-    fun deleteSession(id: Long): Boolean {
-        val foundSession = findOneSession(id)
-        return if (foundSession != null) {
-            sessions.remove(foundSession)
-            true
-        } else {
-            false
-        }
-    }
-
-    fun findOneSession(id: Long): StudySessionModel? {
-        return sessions.find { session -> session.id == id }
     }
 
 
