@@ -22,14 +22,3 @@ data class ExamModel(
     var time: String = "",
     var location: String = ""
 )
-
-data class StudySessionModel(
-    var id: Long = 0,
-    var subjectId: Long = 0,
-    var topic: String = "",
-    var details: String = "",
-    var date: String = "",
-    var startTime: String = "",
-    var durationMinutes: Int = 60,
-    var isCompleted: Boolean = false
-)
