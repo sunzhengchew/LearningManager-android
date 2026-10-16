@@ -10,14 +10,15 @@
     tools:context=".LearnListActivity">
 
   <TextView
-      android:id="@+id/subjectsTitle"
+      android:id="@+id/subjectTitle"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:drawableStart="@drawable/book"
       android:drawablePadding="12dp"
-      android:text="Learning Manager"
+      android:text="Subject"
       android:textSize="26sp"
-      android:textStyle="bold" />
+      android:textStyle="bold"
+      tools:ignore="HardcodedText,UseCompatTextViewDrawableXml" />
 
   <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/subjectRecyclerView"
@@ -26,9 +27,10 @@
       android:layout_weight="1" />
 
   <Button
-      android:id="@+id/returnButton"
+      android:id="@+id/subjectReturnButton"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="Back to Menu" />
+      android:text="Back to Menu"
+      tools:ignore="HardcodedText" />
 
 </LinearLayout>
