@@ -11,7 +11,7 @@ data class AssignmentModel(
     var title: String = "",
     var description: String = "",
     var deadline: String = "",      // "2026-10-20"
-    var isCompleted: Boolean = false
+    var status: String = "Not started"
 )
 
 data class ExamModel(

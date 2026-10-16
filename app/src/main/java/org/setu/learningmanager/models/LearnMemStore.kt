@@ -57,6 +57,9 @@ class LearnMemStore {
         val foundAssignment = findOneAssignment(assignment.id)
         return if (foundAssignment != null) {
             foundAssignment.title = assignment.title
+            foundAssignment.deadline = assignment.deadline
+            foundAssignment.description = assignment.description
+            foundAssignment.status = assignment.status
             true
         } else {
             false
@@ -73,16 +76,13 @@ class LearnMemStore {
         }
     }
 
-    fun findAllAssignment(): List<SubjectModel> {
-        return subjects
-    }
-
     fun findOneAssignment(id: Long): AssignmentModel? {
         return assignments.find { p -> p.id == id }
     }
 
-
-
+    fun findAssignmentsBySubject(subjectId: Long): List<AssignmentModel> {
+        return assignments.filter { it.subjectId == subjectId }
+    }
     // Exam CRUD
     fun findAllExams(): List<ExamModel> {
         return exams
@@ -121,10 +121,9 @@ class LearnMemStore {
         return exams.find { exam -> exam.id == id }
     }
 
-
-
-
-
+    fun findExamsBySubject(subjectId: Long): List<ExamModel> {
+        return exams.filter { it.subjectId == subjectId }
+    }
 
 
 

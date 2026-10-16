@@ -1,10 +1,11 @@
-package org.setu.learningmanager
+package org.setu.learningmanager.learn_list
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import org.setu.learningmanager.R
 
 class LearnListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

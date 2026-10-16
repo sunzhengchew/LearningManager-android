@@ -12,24 +12,30 @@
         android:theme="@style/Theme.LearningManager">
 
         <activity
-            android:name=".AddEditActivity"
+            android:name=".subject.SubjectAddEditActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
         <activity
-            android:name=".SubjectListActivity"
+            android:name=".subject.SubjectListActivity"
             android:exported="false" />
 
         <activity
-            android:name=".MainActivity"
+            android:name=".learn_list.MainActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+
+        <activity
+            android:name=".assignment.AssignmentListActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".assignment.AssignmentAddEditActivity"
+            android:exported="false" />
 
     </application>
 

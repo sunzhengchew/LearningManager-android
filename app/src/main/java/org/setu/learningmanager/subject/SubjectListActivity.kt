@@ -1,4 +1,4 @@
-package org.setu.learningmanager
+package org.setu.learningmanager.subject
 
 import android.app.AlertDialog
 import android.content.Intent
@@ -7,6 +7,9 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import org.setu.learningmanager.AppData
+import org.setu.learningmanager.R
+import org.setu.learningmanager.assignment.AssignmentListActivity
 import org.setu.learningmanager.models.SubjectModel
 
 class SubjectListActivity : AppCompatActivity() {
@@ -29,6 +32,15 @@ class SubjectListActivity : AppCompatActivity() {
 
             onDelete = { subject ->
                 confirmDelete(subject)
+            },
+            onAssignments = { subject ->
+                val intent = Intent(
+                    this,
+                    AssignmentListActivity::class.java
+                )
+
+                intent.putExtra("subjectId", subject.id)
+                startActivity(intent)
             }
         )
 
@@ -53,7 +65,7 @@ class SubjectListActivity : AppCompatActivity() {
     }
 
     private fun editSubject(subject: SubjectModel) {
-        val intent = Intent(this, AddEditActivity::class.java)
+        val intent = Intent(this, SubjectAddEditActivity::class.java)
         intent.putExtra("id", subject.id)
         startActivity(intent)
     }

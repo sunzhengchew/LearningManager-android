@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">LearningManager</string>
+    <string-array name="assignment_status_options">
+        <item>Not started</item>
+        <item>In progress</item>
+        <item>Is completed</item>
+    </string-array>
 </resources>
