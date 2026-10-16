@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import org.setu.learningmanager.models.SubjectModel
@@ -21,10 +22,10 @@ class SubjectAdapter(
         val titleText: TextView =
             itemView.findViewById(R.id.titleText)
 
-        val editButton: Button =
+        val editButton: ImageButton =
             itemView.findViewById(R.id.editButton)
 
-        val deleteButton: Button =
+        val deleteButton: ImageButton =
             itemView.findViewById(R.id.deleteButton)
     }
 
@@ -51,8 +52,7 @@ class SubjectAdapter(
 
         val subject = subjects[position]
 
-        holder.titleText.text =
-            "${subject.id}: ${subject.name}"
+        holder.titleText.text = subject.name
 
         holder.editButton.setOnClickListener {
             onEdit(subject)
