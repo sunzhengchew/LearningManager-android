@@ -124,9 +124,4 @@ class LearnMemStore {
     fun findExamsBySubject(subjectId: Long): List<ExamModel> {
         return exams.filter { it.subjectId == subjectId }
     }
-
-
-
-
-
 }
