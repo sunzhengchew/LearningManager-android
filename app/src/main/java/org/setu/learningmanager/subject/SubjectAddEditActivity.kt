@@ -21,6 +21,11 @@ class SubjectAddEditActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.subject_add_edit)
 
+        supportActionBar?.apply {
+            title = "Add Subject"
+            setDisplayHomeAsUpEnabled(true)
+        }
+
         subjectNameInput = findViewById(R.id.nameInput)
 
         val formTitle = findViewById<TextView>(R.id.formTitle)
@@ -105,5 +110,9 @@ class SubjectAddEditActivity : AppCompatActivity() {
         }
 
         finish()
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 }

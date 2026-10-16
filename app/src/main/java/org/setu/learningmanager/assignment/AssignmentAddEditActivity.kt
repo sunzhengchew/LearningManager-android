@@ -28,6 +28,11 @@ class AssignmentAddEditActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.assignment_add_edit)
 
+        supportActionBar?.apply {
+            title = "Add Assignment"
+            setDisplayHomeAsUpEnabled(true)
+        }
+
         titleInput = findViewById(R.id.titleInput)
         descriptionInput = findViewById(R.id.descriptionInput)
         deadlineInput = findViewById(R.id.deadlineInput)
@@ -172,5 +177,10 @@ class AssignmentAddEditActivity : AppCompatActivity() {
 
     private fun showMessage(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 }

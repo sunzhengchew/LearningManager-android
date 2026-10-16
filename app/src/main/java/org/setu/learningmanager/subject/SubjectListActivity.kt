@@ -21,6 +21,11 @@ class SubjectListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_subject_list)
 
+        supportActionBar?.apply {
+            title = "Subject"
+            setDisplayHomeAsUpEnabled(true)
+        }
+
         recyclerView = findViewById(R.id.subjectRecyclerView)
 
         adapter = SubjectAdapter(
@@ -78,6 +83,7 @@ class SubjectListActivity : AppCompatActivity() {
         )
     }
 
+
     private fun confirmDelete(subject: SubjectModel) {
         AlertDialog.Builder(this)
             .setTitle("Delete subject")
@@ -87,5 +93,9 @@ class SubjectListActivity : AppCompatActivity() {
             }
             .setNegativeButton("Cancel", null)
             .show()
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 }

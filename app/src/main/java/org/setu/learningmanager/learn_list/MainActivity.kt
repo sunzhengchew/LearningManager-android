@@ -19,6 +19,11 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+        supportActionBar?.apply {
+            title = "Assignment"
+            setDisplayHomeAsUpEnabled(true)
+        }
+
         val root = findViewById<View>(R.id.main)
 
         val leftPadding = root.paddingLeft

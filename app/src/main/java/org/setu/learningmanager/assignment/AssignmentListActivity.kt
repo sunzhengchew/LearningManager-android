@@ -24,7 +24,10 @@ class AssignmentListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_assignment_list)
-
+        supportActionBar?.apply {
+            title = "Assignments"
+            setDisplayHomeAsUpEnabled(true)
+        }
         subjectId = intent.getLongExtra("subjectId", -1L)
 
         if (AppData.store.findOneSubject(subjectId) == null) {
@@ -140,5 +143,10 @@ class AssignmentListActivity : AppCompatActivity() {
             }
             .setNegativeButton("Cancel", null)
             .show()
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 }
