@@ -1,12 +1,16 @@
-package org.setu.learningmanager
+package org.setu.learningmanager.learn_list
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import org.setu.learningmanager.R
+import org.setu.learningmanager.subject.SubjectAddEditActivity
+import org.setu.learningmanager.subject.SubjectListActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        val root = findViewById<android.view.View>(R.id.main)
+        val root = findViewById<View>(R.id.main)
 
         val leftPadding = root.paddingLeft
         val topPadding = root.paddingTop
@@ -50,7 +54,7 @@ class MainActivity : AppCompatActivity() {
 
         addSubjectButton.setOnClickListener {
             startActivity(
-                Intent(this, AddEditActivity::class.java)
+                Intent(this, SubjectAddEditActivity::class.java)
             )
         }
     }

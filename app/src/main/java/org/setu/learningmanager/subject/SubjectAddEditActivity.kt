@@ -1,4 +1,4 @@
-package org.setu.learningmanager
+package org.setu.learningmanager.subject
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -7,9 +7,11 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import org.setu.learningmanager.AppData
+import org.setu.learningmanager.R
 import org.setu.learningmanager.models.SubjectModel
 
-class AddEditActivity : AppCompatActivity() {
+class SubjectAddEditActivity : AppCompatActivity() {
 
     private lateinit var subjectNameInput: EditText
     private var editingId: Long? = null

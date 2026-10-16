@@ -1,19 +1,20 @@
-package org.setu.learningmanager
+package org.setu.learningmanager.subject
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import org.setu.learningmanager.R
 import org.setu.learningmanager.models.SubjectModel
 
 class SubjectAdapter(
     private var subjects: List<SubjectModel>,
     private val onEdit: (SubjectModel) -> Unit,
-    private val onDelete: (SubjectModel) -> Unit
+    private val onDelete: (SubjectModel) -> Unit,
+    private val onAssignments: (SubjectModel) -> Unit
 ) : RecyclerView.Adapter<SubjectAdapter.SubjectViewHolder>() {
 
     class SubjectViewHolder(itemView: View) :
@@ -27,6 +28,9 @@ class SubjectAdapter(
 
         val deleteButton: ImageButton =
             itemView.findViewById(R.id.deleteButton)
+
+        val assignmentButton: ImageButton =
+            itemView.findViewById(R.id.assignmentButton)
     }
 
     override fun onCreateViewHolder(
@@ -60,6 +64,9 @@ class SubjectAdapter(
 
         holder.deleteButton.setOnClickListener {
             onDelete(subject)
+        }
+        holder.assignmentButton.setOnClickListener {
+            onAssignments(subject)
         }
     }
 

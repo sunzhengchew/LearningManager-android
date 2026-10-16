@@ -14,6 +14,7 @@
             android:id="@+id/formTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableStart="@drawable/book"
             android:text="Add Subject"
             android:textSize="28sp"
             android:textStyle="bold" />
