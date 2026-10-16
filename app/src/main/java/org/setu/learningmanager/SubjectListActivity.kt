@@ -1,5 +1,6 @@
 package org.setu.learningmanager
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -15,7 +16,7 @@ class SubjectListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_learn_list)
+        setContentView(R.layout.activity_subject_list)
 
         recyclerView = findViewById(R.id.subjectRecyclerView)
 
@@ -27,14 +28,14 @@ class SubjectListActivity : AppCompatActivity() {
             },
 
             onDelete = { subject ->
-                deleteSubject(subject)
+                confirmDelete(subject)
             }
         )
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
 
-        val returnButton = findViewById<Button>(R.id.returnButton)
+        val returnButton = findViewById<Button>(R.id.subjectReturnButton)
 
         returnButton.setOnClickListener {
             finish()
@@ -63,5 +64,16 @@ class SubjectListActivity : AppCompatActivity() {
         adapter.updateSubjects(
             AppData.store.findAllSubject()
         )
+    }
+
+    private fun confirmDelete(subject: SubjectModel) {
+        AlertDialog.Builder(this)
+            .setTitle("Delete subject")
+            .setMessage("Delete this subject?")
+            .setPositiveButton("Delete") { _, _ ->
+                deleteSubject(subject)
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
     }
 }
